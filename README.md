@@ -36,5 +36,7 @@ Current status:
 - Added weight and bias gradient calculation.
 - Created an Optimizer class.
 - Implemented basic Gradient Descent with a configurable learning rate.
+- First successful end-to-end training test completed:
+        The network learned to map the encoded expression "A AND B" to its truth-table output [0, 0, 0, 1].
 
-Next step: Connect these parts into the first complete training step.
+Next step: Prepare Multi Layer Backpropagation.

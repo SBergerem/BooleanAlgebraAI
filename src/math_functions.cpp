@@ -37,17 +37,17 @@ float MathFunctions::getRandomFloat(float min, float max)
 }
 
 float MathFunctions::calculateMeanSquaredError(const std::vector<float> &predictions,
-                                               const std::vector<float> &solutions)
+                                               const std::vector<float> &targets)
 {
-    assert((predictions.size() == solutions.size()) //
-           && (predictions.size() > 0)              //
-           && (solutions.size() > 0));
+    assert((predictions.size() == targets.size()) //
+           && (predictions.size() > 0)            //
+           && (targets.size() > 0));
 
     float result = 0.0f;
 
     for (std::size_t i = 0; i < predictions.size(); i++)
     {
-        float difference = predictions[i] - solutions[i];
+        float difference = predictions[i] - targets[i];
         result += (difference * difference);
     }
 
@@ -55,16 +55,16 @@ float MathFunctions::calculateMeanSquaredError(const std::vector<float> &predict
 }
 
 std::vector<float> MathFunctions::calculateMeanSquaredErrorDerivative(const std::vector<float> &predictions,
-                                                                      const std::vector<float> &solutions)
+                                                                      const std::vector<float> &targets)
 {
-    assert((predictions.size() == solutions.size()) //
-           && (predictions.size() > 0)              //
-           && (solutions.size() > 0));
+    assert((predictions.size() == targets.size()) //
+           && (predictions.size() > 0)            //
+           && (targets.size() > 0));
 
     std::vector<float> results(predictions.size(), 0);
 
     for (size_t i = 0; i < predictions.size(); i++)
-        results[i] = 2.0f * (predictions[i] - solutions[i]) / predictions.size();
+        results[i] = 2.0f * (predictions[i] - targets[i]) / predictions.size();
 
     return results;
 }

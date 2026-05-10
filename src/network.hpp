@@ -1,4 +1,5 @@
-#include <vector>
+#pragma once
+
 #include "layer.hpp"
 
 class Network
@@ -8,7 +9,9 @@ private:
 
 public:
     static size_t layerCount;
-    static size_t outputCount;
+    size_t outputCount;
+
+    std::vector<Layer> &getLayers();
 
     Network(std::vector<size_t> neuronsPerLayer);
 

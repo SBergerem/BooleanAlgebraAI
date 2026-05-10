@@ -1,12 +1,20 @@
+#pragma once
+
 #include <vector>
 
 class Optimizer
 {
-public:
-    static float learningRate;
+private:
+    float _learningRate;
 
-    static void applyGradientDescent(const std::vector<float> &weightGradients,
-                                     const std::vector<float> &biasGradients,
-                                     std::vector<float> &weights,
-                                     std::vector<float> &biases);
+public:
+    Optimizer(const float learningRate);
+
+    float getLearningRate() const;
+    void setLearningRate(float learningRate);
+
+    void applyGradientDescent(const std::vector<float> &weightGradients,
+                              const std::vector<float> &biasGradients,
+                              std::vector<float> &weights,
+                              std::vector<float> &biases);
 };

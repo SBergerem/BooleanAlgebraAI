@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <random>
 
@@ -19,10 +21,10 @@ public:
     static float getSigmoidValueDerivative(float x);
 
     static float calculateMeanSquaredError(const std::vector<float> &predictions,
-                                           const std::vector<float> &solutions);
+                                           const std::vector<float> &targets);
 
     static std::vector<float> calculateMeanSquaredErrorDerivative(const std::vector<float> &predictions,
-                                                                  const std::vector<float> &solutions);
+                                                                  const std::vector<float> &targets);
 
     static std::vector<float> calculateDeltaValues(const std::vector<float> &predictions,
                                                    const std::vector<float> &mseDerivatives);
