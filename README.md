@@ -17,3 +17,24 @@ Translated with DeepL.com (free version)
 Transferring the chat went a little differently than I expected. Instead of simply copying a link to my Gemini chat and pasting it into ChatGPT, I had to copy the entire (!) chat and paste it into ChatGPT, since it seems you can’t view the chat without a Google account. From there, though, ChatGPT was able to take over immediately.
 I recommend saving the old chat to a text file and giving that to ChatGPT instead of sending the chat directly as a message. ChatGPT can read the file much faster.
 
+The project is far from finished. 
+
+What has been done so far:
+
+Current status:
+
+- Implemented a basic data encoding pipeline for Boolean expressions.
+- Added token/ID handling for variables, operators, parentheses, and padding.
+- Prepared one-hot encoding / flattening for neural network input.
+- Implemented flattened weight storage for better performance and future GPU-readiness.
+- Added Xavier/Glorot weight initialization.
+- Implemented forward propagation for layers.
+- Added loss calculation using Mean Squared Error.
+- Added MSE derivative calculation.
+- Added sigmoid activation and sigmoid derivative.
+- Added delta calculation for output neurons.
+- Added weight and bias gradient calculation.
+- Created an Optimizer class.
+- Implemented basic Gradient Descent with a configurable learning rate.
+
+Next step: Connect these parts into the first complete training step.
