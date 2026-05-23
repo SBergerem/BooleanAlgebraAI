@@ -38,5 +38,15 @@ Current status:
 - Implemented basic Gradient Descent with a configurable learning rate.
 - First successful end-to-end training test completed:
         The network learned to map the encoded expression "A AND B" to its truth-table output [0, 0, 0, 1].
+- Added Trainer class.
+- Added activation saving during forward pass.
+- Implemented hidden-layer delta calculation.
+- Implemented multi-layer backpropagation.
+- Added training support for hidden layers.
+- Added multiple Boolean expression training samples.
+- Added console output for predictions, targets and MSE.
+- Added simple Timer class.
+- Successfully trained multiple encoded Boolean formulas to truth-table outputs.
 
-Next step: Prepare Multi Layer Backpropagation.
+Next step:
+Automate dataset generation with a Boolean expression evaluator and formula generator in a separate repository. Link will be added later.

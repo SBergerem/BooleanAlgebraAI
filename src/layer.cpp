@@ -17,7 +17,7 @@ Layer::Layer(size_t neuronCount, size_t inputCount)
     float limit = sqrt(6.0f / (inputCount + neuronCount));
 
     for (float &w : _weights)
-        w = MathFunctions::getRandomFloat(-limit, limit);
+        w = MathFunctions::calculateRandomFloat(-limit, limit);
 }
 
 size_t Layer::getNeuronCount() const
@@ -53,6 +53,6 @@ void Layer::getOutputs(const std::vector<float> &inputs, std::vector<float> &out
                   {                                                                   //
                       std::size_t startIndex = i * _inputCount;
 
-                      outputBuffer[i] = MathFunctions::getNeuronOutput(startIndex, inputs, _weights, _biases[i]); //
+                      outputBuffer[i] = MathFunctions::calculateNeuronOutput(startIndex, inputs, _weights, _biases[i]); //
                   });
 }

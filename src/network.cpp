@@ -1,11 +1,14 @@
 #include <cassert>
 #include "network.hpp"
 
-size_t Network::layerCount = 2;
-
 std::vector<Layer> &Network::getLayers()
 {
     return _layers;
+}
+
+size_t Network::getLayerCount()
+{
+    return _layers.size();
 }
 
 Network::Network(std::vector<std::size_t> neuronsPerLayer)
@@ -18,16 +21,39 @@ Network::Network(std::vector<std::size_t> neuronsPerLayer)
     outputCount = neuronsPerLayer.back();
 }
 
-std::vector<float> Network::predict(const std::vector<float> &inputs) const
+void Network::predict(const std::vector<float> &inputs, std::vector<float> &predictions) const
 {
-    std::vector<float> values = inputs;
+    predictions = inputs;
     std::vector<float> nextValues;
 
     for (const Layer &layer : _layers)
     {
-        layer.getOutputs(values, nextValues);
-        values = nextValues;
+        layer.getOutputs(predictions, nextValues);
+        predictions = nextValues;
+    }
+}
+
+void Network::predictWithSavingActivations(const std::vector<float> &inputs,
+                                           std::vector<float> &predictions,
+                                           std::vector<std::vector<float>> &activations) const
+{
+    assert(_layers.size() > 0);
+
+    activations.resize(_layers.size() + 1, std::vector<float>());
+    activations[0] = inputs;
+
+    std::vector<float> outputs = inputs;
+    std::vector<float> nextValues;
+
+    size_t index = 1;
+    for (const Layer &layer : _layers)
+    {
+        layer.getOutputs(outputs, nextValues);
+        activations[index] = nextValues;
+        outputs = nextValues;
+
+        index++;
     }
 
-    return values;
+    predictions = outputs;
 }
